@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "dominionsworld",
+  "name": "dominionsworld",
+  "author": "archpriest",
+  "description": "Custom world generation for dominions server",
+  "version": "1.0.0",
+  "dependency": {
+    "game": ""
+  }
+}
