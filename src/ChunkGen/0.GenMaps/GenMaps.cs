@@ -101,7 +101,6 @@ namespace dominions.world
             mapRegion.GeologicProvinceMap.Size = noiseSizeGeoProv + 2 * pad;
             mapRegion.GeologicProvinceMap.TopLeftPadding = mapRegion.GeologicProvinceMap.BottomRightPadding = pad;
 
-            pad = 2;
             /*
               mapRegion.ClimateMap.Data = climateGen.GenLayer(
                 regionX * noiseSizeClimate - pad,
@@ -111,6 +110,8 @@ namespace dominions.world
             );
             */
 
+            pad = 2;
+            // dominionsmodification we get the climate data through the GenClimateLayer method of WorldMap, which reads the climate.png 
             mapRegion.ClimateMap.Data = WorldMap.GenClimateLayer(
                 regionX,
                 regionZ,

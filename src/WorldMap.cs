@@ -14,18 +14,12 @@ namespace dominions.world
 {
     public static class WorldMap
     {
-
-        // has to return an int[400]
         public static int[] GenClimateLayer(int regionX, int regionZ, int sizeX, int sizeZ, ICoreServerAPI api)
         {
             int[] outData = new int[sizeX * sizeZ];
 
-            // get the 
             int noiseSizeLandform = api.WorldManager.RegionSize / TerraGenConfig.climateMapScale;
             int pad = 2;
-
-            int xCoord = regionX * noiseSizeLandform - pad;
-            int zCoord = regionZ * noiseSizeLandform - pad;
 
             Bitmap climateMap = WorldMap.TryGetClimate(api);
 
@@ -34,11 +28,10 @@ namespace dominions.world
                 for (int x = 0; x < sizeX; ++x)
                 {
                     // pixel
-                    int pixelX = (((regionX * 512) / 32) - 8376) + (x - 2);
-                    int pixelZ = (((regionZ * 512) / 32) - 8376) + (y - 2);
+                    int pixelX = (((regionX * 512) / 32) - 8376) + (x - pad);
+                    int pixelZ = (((regionZ * 512) / 32) - 8376) + (y - pad);
                     if (pixelX >= 2000 || pixelX < 0 || pixelZ >= 2000 || pixelZ < 0)
                     {
-                        api.World.Logger.Notification("OUT OF BOUNDSSSSSSSSSSSSSSSSSSSSSSSSSS");
                         outData[y * sizeX + x] = 16711680;
                     }
                     else
