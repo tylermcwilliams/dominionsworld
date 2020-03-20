@@ -102,12 +102,20 @@ namespace dominions.world
             mapRegion.GeologicProvinceMap.TopLeftPadding = mapRegion.GeologicProvinceMap.BottomRightPadding = pad;
 
             pad = 2;
-            mapRegion.ClimateMap.Data = climateGen.GenLayer(
+            /*
+              mapRegion.ClimateMap.Data = climateGen.GenLayer(
                 regionX * noiseSizeClimate - pad,
                 regionZ * noiseSizeClimate - pad,
                 noiseSizeClimate + 2 * pad,
                 noiseSizeClimate + 2 * pad
             );
+            */
+
+            mapRegion.ClimateMap.Data = WorldMap.GenClimateLayer(
+                regionX,
+                regionZ,
+                noiseSizeClimate + 2 * pad,
+                noiseSizeClimate + 2 * pad, this.api);
             mapRegion.ClimateMap.Size = noiseSizeClimate + 2 * pad;
             mapRegion.ClimateMap.TopLeftPadding = mapRegion.ClimateMap.BottomRightPadding = pad;
 

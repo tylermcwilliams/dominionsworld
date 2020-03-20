@@ -44,8 +44,8 @@ namespace dominions.world
                     int offsetY = (int)(intensity * noisegenY.Noise(xCoord + x + margin, zCoord + y + margin));
 
                     // We wrap around overflowing coordinates
-                    int newXCoord = GameMath.Mod(x + offsetX + margin/2, paddedSizeX);
-                    int newYCoord = GameMath.Mod(y + offsetY + margin/2, paddedSizeZ);
+                    int newXCoord = GameMath.Mod(x + offsetX + margin / 2, paddedSizeX);
+                    int newYCoord = GameMath.Mod(y + offsetY + margin / 2, paddedSizeZ);
 
                     outData[y * sizeX + x] = inData[newYCoord * paddedSizeX + newXCoord];
                 }

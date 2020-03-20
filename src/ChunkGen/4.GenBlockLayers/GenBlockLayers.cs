@@ -115,6 +115,8 @@ namespace dominions.world
             ushort[] heightMap = chunks[0].MapChunk.RainHeightMap;
 
             int regionChunkSize = api.WorldManager.RegionSize / chunksize;
+
+            //fetch the region coordinates
             int rdx = chunkX % regionChunkSize;
             int rdz = chunkZ % regionChunkSize;
 
@@ -140,7 +142,6 @@ namespace dominions.world
 
             float transitionSize = blockLayerConfig.blockLayerTransitionSize;
 
-
             for (int x = 0; x < chunksize; x++)
             {
                 for (int z = 0; z < chunksize; z++)
@@ -155,16 +156,69 @@ namespace dominions.world
                     int posY = heightMap[z * chunksize + x];
 
                     int climate = climateMap.GetUnpaddedColorLerped(
-                        rdx * climateStep + climateStep * (float)(x + distx) / chunksize,
-                        rdz * climateStep + climateStep * (float)(z + distz) / chunksize
+                        Math.Abs(rdx * climateStep + climateStep * (float)(x + distx) / chunksize),
+                        Math.Abs(rdz * climateStep + climateStep * (float)(z + distz) / chunksize)
                     );
 
                     int tempUnscaled = (climate >> 16) & 0xff;
+
+                    // ===
+                    float pz = (rdz * climateStep + climateStep * (float)(z + distz) / chunksize);
+                    float px = (rdx * climateStep + climateStep * (float)(x + distx) / chunksize);
+                    // ===
+                    int iz = (int)pz;
+                    int ix = (int)px;
+
+                    if (tempUnscaled < 200)
+                    {
+                        int colorTopLeft = climateMap.Data[(iz + climateMap.TopLeftPadding) * climateMap.Size + ix + climateMap.TopLeftPadding];
+                        int colorTopRight = climateMap.Data[(iz + climateMap.TopLeftPadding) * climateMap.Size + ix + 1 + climateMap.TopLeftPadding];
+                        int colorBottomLeft = climateMap.Data[(iz + 1 + climateMap.TopLeftPadding) * climateMap.Size + ix + climateMap.TopLeftPadding];
+                        int colorBottomRight = climateMap.Data[(iz + 1 + climateMap.TopLeftPadding) * climateMap.Size + ix + 1 + climateMap.TopLeftPadding];
+
+
+                        float lx = px - ix;
+                        float lz = pz - iz;
+
+                        int top = GameMath.LerpRgbColor(lx, colorTopLeft, colorTopRight);
+                        int bottom = GameMath.LerpRgbColor(lx, colorBottomLeft, colorBottomRight);
+
+                        int both = GameMath.LerpRgbColor(lz, top, bottom);
+
+
+
+                        api.World.Logger.Notification("inner size " + climateMap.InnerSize.ToString());
+
+                        api.World.Logger.Notification("topleft pad " + climateMap.TopLeftPadding.ToString());
+                        api.World.Logger.Notification("botright" + climateMap.BottomRightPadding.ToString());
+
+                        api.World.Logger.Notification("iz" + iz.ToString());
+                        api.World.Logger.Notification("ix" + ix.ToString());
+
+                        api.World.Logger.Notification("lz" + lz.ToString());
+                        api.World.Logger.Notification("lx" + lx.ToString());
+
+
+
+                        api.World.Logger.Notification("colorTopLeft " + colorTopLeft.ToString() + " _index: " + ((iz + climateMap.TopLeftPadding) * climateMap.Size + ix + climateMap.TopLeftPadding).ToString());
+                        api.World.Logger.Notification("colorTopRight " + colorTopRight.ToString() + " _index: " + ((iz + climateMap.TopLeftPadding) * climateMap.Size + ix + 1 + climateMap.TopLeftPadding).ToString());
+                        api.World.Logger.Notification("colorBottomLeft " + colorBottomLeft.ToString() + " _index: " + ((iz + 1 + climateMap.TopLeftPadding) * climateMap.Size + ix + climateMap.TopLeftPadding).ToString());
+                        api.World.Logger.Notification("colorBottomRight " + colorBottomRight.ToString() + " _index: " + ((iz + 1 + climateMap.TopLeftPadding) * climateMap.Size + ix + 1 + climateMap.TopLeftPadding).ToString());
+
+                        api.World.Logger.Notification("top " + top.ToString());
+                        api.World.Logger.Notification("bottom " + bottom.ToString());
+
+                        api.World.Logger.Notification("both " + both.ToString());
+
+                    }
+
                     int rnd = (int)(distx / 5);
                     float temp = TerraGenConfig.GetScaledAdjustedTemperatureFloat(tempUnscaled, posY - TerraGenConfig.seaLevel + rnd);
                     float rainRel = TerraGenConfig.GetRainFall((climate >> 8) & 0xff, posY + rnd) / 255f;
                     float forestRel = GameMath.BiLerp(forestUpLeft, forestUpRight, forestBotLeft, forestBotRight, (float)x / chunksize, (float)z / chunksize) / 255f;
                     float beachRel = GameMath.BiLerp(beachUpLeft, beachUpRight, beachBotLeft, beachBotRight, (float)x / chunksize, (float)z / chunksize) / 255f;
+
+                    //api.World.Logger.Notification(x.ToString() + " " + z.ToString() + " temp: " + tempUnscaled.ToString() + " distx" + distx.ToString() + " distz" + distz.ToString());
 
                     int prevY = posY;
 

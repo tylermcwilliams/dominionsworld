@@ -53,7 +53,7 @@ namespace customworld
             {
                 for (int i = 0; handlers != null && i < handlers.Count; i++)
                 {
-                    if (handlers[i].Target.GetType().Namespace == "Vintagestory.ServerMods" && (handlers[i].Target.GetType().Name == "GenTerra"))
+                    if (handlers[i].Target.GetType().Namespace == "Vintagestory.ServerMods" && (handlers[i].Target.GetType().Name == "GenTerra" || handlers[i].Target.GetType().Name == "GenBlockLayers"))
                     {
                         handlers.RemoveAt(i);
                         i--;
@@ -65,7 +65,7 @@ namespace customworld
                 var handlers = handlergroup.OnMapRegionGen;
                 for (int i = 0; handlers != null && i < handlers.Count; i++)
                 {
-                    if (handlers[i].Target.GetType().Namespace == "Vintagestory.ServerMods" && handlers[i].Target.GetType().Name == "GenMaps" || handlers[i].Target.GetType().Name == "GenBlockLayers")
+                    if (handlers[i].Target.GetType().Namespace == "Vintagestory.ServerMods" && (handlers[i].Target.GetType().Name == "GenMaps" || handlers[i].Target.GetType().Name == "GenBlockLayers"))
                     {
                         handlers.RemoveAt(i);
                         i--;

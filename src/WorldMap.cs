@@ -6,12 +6,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vintagestory.API.Common;
+using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
+using Vintagestory.ServerMods;
 
-namespace customworld
+namespace dominions.world
 {
     public static class WorldMap
     {
+
+        // has to return an int[400]
+        public static int[] GenClimateLayer(int regionX, int regionZ, int sizeX, int sizeZ, ICoreServerAPI api)
+        {
+            int[] outData = new int[sizeX * sizeZ];
+
+            // get the 
+            int noiseSizeLandform = api.WorldManager.RegionSize / TerraGenConfig.climateMapScale;
+            int pad = 2;
+
+            int xCoord = regionX * noiseSizeLandform - pad;
+            int zCoord = regionZ * noiseSizeLandform - pad;
+
+            Bitmap climateMap = WorldMap.TryGetClimate(api);
+
+            for (int y = 0; y < sizeZ; ++y)
+            {
+                for (int x = 0; x < sizeX; ++x)
+                {
+                    // pixel
+                    int pixelX = (((regionX * 512) / 32) - 8376) + (x - 2);
+                    int pixelZ = (((regionZ * 512) / 32) - 8376) + (y - 2);
+                    if (pixelX >= 2000 || pixelX < 0 || pixelZ >= 2000 || pixelZ < 0)
+                    {
+                        api.World.Logger.Notification("OUT OF BOUNDSSSSSSSSSSSSSSSSSSSSSSSSSS");
+                        outData[y * sizeX + x] = 16711680;
+                    }
+                    else
+                    {
+                        int temperature = climateMap.GetPixel(pixelX, pixelZ).R;
+                        int rain = climateMap.GetPixel(pixelX, pixelZ).G;
+
+                        int climate = (temperature << 16) + (rain << 8);
+
+                        outData[y * sizeX + x] = climate;
+                    }
+                }
+            }
+
+            return outData;
+        }
 
         public static Bitmap map = null;
         public static Bitmap climateMap = null;
