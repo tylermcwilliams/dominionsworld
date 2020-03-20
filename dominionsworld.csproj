@@ -95,10 +95,6 @@
     <Compile Include="src\ChunkGen\0.GenMaps\NoiseLandform.cs" />
     <Compile Include="src\ChunkGen\0.GenMaps\NoiseOre.cs" />
     <Compile Include="src\ChunkGen\0.GenMaps\NoiseWind.cs" />
-    <Compile Include="src\ChunkGen\1.GenTerra\GenTerra.cs" />
-    <Compile Include="src\ChunkGen\1.GenTerra\GenTerraPostProcess.cs" />
-    <Compile Include="src\ChunkGen\1.GenTerra\Landforms.cs" />
-    <Compile Include="src\ChunkGen\1.GenTerra\LandformVariant.cs" />
     <Compile Include="src\ChunkGen\4.GenBlockLayers\BlockLayer.cs" />
     <Compile Include="src\ChunkGen\4.GenBlockLayers\BlockLayerConfig.cs" />
     <Compile Include="src\ChunkGen\4.GenBlockLayers\GenBlockLayers.cs" />

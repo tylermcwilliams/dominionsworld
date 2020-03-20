@@ -145,7 +145,9 @@ namespace dominions.world
 
 
             pad = TerraGenConfig.landformMapPadding;
-            mapRegion.LandformMap.Data = landformsGen.GenLayer(regionX * noiseSizeLandform - pad, regionZ * noiseSizeLandform - pad, noiseSizeLandform + 2 * pad, noiseSizeLandform + 2 * pad);
+            //mapRegion.LandformMap.Data = landformsGen.GenLayer(regionX * noiseSizeLandform - pad, regionZ * noiseSizeLandform - pad, noiseSizeLandform + 2 * pad, noiseSizeLandform + 2 * pad);
+
+            mapRegion.LandformMap.Data = WorldMap.GenLandformLayer(regionX, regionZ, noiseSizeLandform + 2 * pad, noiseSizeLandform + 2 * pad, api);
             mapRegion.LandformMap.Size = noiseSizeLandform + 2 * pad;
             mapRegion.LandformMap.TopLeftPadding = mapRegion.LandformMap.BottomRightPadding = pad;
 

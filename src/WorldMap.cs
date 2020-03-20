@@ -14,11 +14,13 @@ namespace dominions.world
 {
     public static class WorldMap
     {
+        public static Bitmap map = null;
+        public static Bitmap climateMap = null;
+
         public static int[] GenClimateLayer(int regionX, int regionZ, int sizeX, int sizeZ, ICoreServerAPI api)
         {
             int[] outData = new int[sizeX * sizeZ];
 
-            int noiseSizeLandform = api.WorldManager.RegionSize / TerraGenConfig.climateMapScale;
             int pad = 2;
 
             Bitmap climateMap = WorldMap.TryGetClimate(api);
@@ -49,17 +51,46 @@ namespace dominions.world
             return outData;
         }
 
-        public static Bitmap map = null;
-        public static Bitmap climateMap = null;
-        // Colors
-        public static Color ocean = Color.FromArgb(0, 0, 0);
-        public static Color abyss = Color.FromArgb(1, 0, 0);
+        public static int[] GenLandformLayer(int regionX, int regionZ, int sizeX, int sizeZ, ICoreServerAPI api)
+        {
+            int[] result = new int[sizeX * sizeZ];
 
-        public static Color mesa = Color.FromArgb(2, 0, 0);
-        public static Color mount = Color.FromArgb(3, 0, 0);
-        public static Color flatlandsh = Color.FromArgb(4, 0, 0);
-        public static Color flatlandsl = Color.FromArgb(5, 0, 0);
+            Bitmap worldMap = WorldMap.TryGet(api);
 
+            for (int x = 0; x < (sizeX / 2); x++)
+            {
+                for (int z = 0; z < (sizeZ / 2); z++)
+                {
+                    int offset = (z * sizeX * 2) + (x * 2);
+
+                    // pixel
+                    int pixelX = (((regionX * 512) / 32) - 8376) + (x - 2);
+                    int pixelZ = (((regionZ * 512) / 32) - 8376) + (z - 2);
+
+
+                    if (pixelX >= 2000 || pixelX < 0 || pixelZ >= 2000 || pixelZ < 0)
+                    {
+
+                        result[offset] = 1;
+                        result[offset + 1] = 1;
+
+                        result[offset + 40] = 1;
+                        result[offset + 41] = 1;
+                    }
+                    else
+                    {
+                        result[offset] = WorldMap.GetBiomeFromPixel(worldMap.GetPixel(pixelX, pixelZ));
+                        result[offset + 1] = WorldMap.GetBiomeFromPixel(worldMap.GetPixel(pixelX, pixelZ));
+
+                        result[offset + 40] = WorldMap.GetBiomeFromPixel(worldMap.GetPixel(pixelX, pixelZ));
+                        result[offset + 41] = WorldMap.GetBiomeFromPixel(worldMap.GetPixel(pixelX, pixelZ));
+                    }
+                }
+            }
+
+            return result;
+
+        }
 
         public static Bitmap TryGet(ICoreServerAPI sapi)
         {
@@ -84,7 +115,6 @@ namespace dominions.world
                 return map;
             }
         }
-
 
         public static Bitmap TryGetClimate(ICoreServerAPI sapi)
         {
@@ -113,6 +143,18 @@ namespace dominions.world
         // to be replaced with dictionary
         public static int GetBiomeFromPixel(Color color)
         {
+            return color.R;
+            //water
+            if (color.R > 0)
+            {
+                return 1;
+            }
+            //land
+            else
+            {
+                return 0;
+            }
+
             if (color.R > 5)
             {
                 return new Random().Next(6, 30);
