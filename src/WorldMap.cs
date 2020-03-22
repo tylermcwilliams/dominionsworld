@@ -31,25 +31,24 @@ namespace dominions.world
                 this.landformMap = new Bitmap(landformPath);
             }
 
-            string climatePath = mapFolder + @"/landforms.png";
+            string climatePath = mapFolder + @"/climate.png";
             if (File.Exists(climatePath))
             {
-                this.climateMap = new Bitmap(climateMap);
+                this.climateMap = new Bitmap(climatePath);
             }
 
-            // tests
-            api.RegisterCommand("getclimate", "gets temperature value on map", "", (IServerPlayer player, int i, CmdArgs args) =>
+            api.RegisterCommand("gethumidity", "gets humidity value on map", "", (IServerPlayer player, int i, CmdArgs args) =>
             {
                 int chunkx = player.Entity.ServerPos.AsBlockPos.X / 32;
-                int chunkz = player.Entity.ServerPos.AsBlockPos.Y / 32;
+                int chunkz = player.Entity.ServerPos.AsBlockPos.Z / 32;
 
-                api.BroadcastMessageToAllGroups(ChunkToPixel(chunkx, chunkz, climateMap).R.ToString(), EnumChatType.Notification);
+                api.BroadcastMessageToAllGroups(ChunkToPixel(chunkx, chunkz, climateMap).G.ToString(), EnumChatType.Notification);
             });
 
-            api.RegisterCommand("getland", "gets land value on map", "", (IServerPlayer player, int i, CmdArgs args) =>
+            api.RegisterCommand("getlandform", "gets land value on map", "", (IServerPlayer player, int i, CmdArgs args) =>
             {
                 int chunkx = player.Entity.ServerPos.AsBlockPos.X / 32;
-                int chunkz = player.Entity.ServerPos.AsBlockPos.Y / 32;
+                int chunkz = player.Entity.ServerPos.AsBlockPos.Z / 32;
 
                 api.BroadcastMessageToAllGroups(ChunkToPixel(chunkx, chunkz, landformMap).R.ToString(), EnumChatType.Notification);
             });
@@ -120,7 +119,7 @@ namespace dominions.world
 
         public static Color ChunkToPixel(int chunkx, int chunkz, Bitmap map)
         {
-            if (chunkx > chunkOffset || chunkz > chunkOffset)
+            if (chunkx < chunkOffset || chunkz < chunkOffset)
             {
                 // out of bounds
                 return Color.Black;
