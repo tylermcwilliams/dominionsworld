@@ -10,8 +10,9 @@ namespace dominions.world
 {
     public class GenMaps : ModSystem
     {
+        // dominionsmod
+        WorldMap worldMap;
         ICoreServerAPI api;
-
         MapLayerBase climateGen;
         MapLayerBase flowerGen;
         MapLayerBase bushGen;
@@ -76,6 +77,8 @@ namespace dominions.world
             noiseClimate.rainMul = rainModifier;
             noiseClimate.tempMul = tempModifier;
 
+            // dominionsmod
+            worldMap = new WorldMap(api);
 
             climateGen = GetClimateMapGen(seed + 1, noiseClimate);
             forestGen = GetForestMapGen(seed + 2, TerraGenConfig.forestMapScale);
@@ -101,22 +104,26 @@ namespace dominions.world
             mapRegion.GeologicProvinceMap.Size = noiseSizeGeoProv + 2 * pad;
             mapRegion.GeologicProvinceMap.TopLeftPadding = mapRegion.GeologicProvinceMap.BottomRightPadding = pad;
 
-            /*
-              mapRegion.ClimateMap.Data = climateGen.GenLayer(
-                regionX * noiseSizeClimate - pad,
-                regionZ * noiseSizeClimate - pad,
-                noiseSizeClimate + 2 * pad,
-                noiseSizeClimate + 2 * pad
-            );
-            */
-
             pad = 2;
-            // dominionsmodification we get the climate data through the GenClimateLayer method of WorldMap, which reads the climate.png 
-            mapRegion.ClimateMap.Data = WorldMap.GenClimateLayer(
-                regionX,
-                regionZ,
-                noiseSizeClimate + 2 * pad,
-                noiseSizeClimate + 2 * pad, this.api);
+            // dominionsmod we get the climate data through the GenClimateLayer method of WorldMap, which reads the climate.png 
+            if (worldMap.climateMap != null)
+            {
+                mapRegion.ClimateMap.Data = worldMap.GenClimateLayer(
+                    regionX,
+                    regionZ,
+                    noiseSizeClimate + 2 * pad,
+                    noiseSizeClimate + 2 * pad
+                );
+            }
+            else
+            {
+                mapRegion.ClimateMap.Data = climateGen.GenLayer(
+                    regionX * noiseSizeClimate - pad,
+                    regionZ * noiseSizeClimate - pad,
+                    noiseSizeClimate + 2 * pad,
+                    noiseSizeClimate + 2 * pad
+                );
+            }
             mapRegion.ClimateMap.Size = noiseSizeClimate + 2 * pad;
             mapRegion.ClimateMap.TopLeftPadding = mapRegion.ClimateMap.BottomRightPadding = pad;
 
@@ -145,9 +152,15 @@ namespace dominions.world
 
 
             pad = TerraGenConfig.landformMapPadding;
-            //mapRegion.LandformMap.Data = landformsGen.GenLayer(regionX * noiseSizeLandform - pad, regionZ * noiseSizeLandform - pad, noiseSizeLandform + 2 * pad, noiseSizeLandform + 2 * pad);
-
-            mapRegion.LandformMap.Data = WorldMap.GenLandformLayer(regionX, regionZ, noiseSizeLandform + 2 * pad, noiseSizeLandform + 2 * pad, api);
+            // dominionsmod
+            if (worldMap.landformMap != null)
+            {
+                mapRegion.LandformMap.Data = worldMap.GenLandformLayer(regionX, regionZ, noiseSizeLandform + 2 * pad, noiseSizeLandform + 2 * pad);
+            }
+            else
+            {
+                mapRegion.LandformMap.Data = landformsGen.GenLayer(regionX * noiseSizeLandform - pad, regionZ * noiseSizeLandform - pad, noiseSizeLandform + 2 * pad, noiseSizeLandform + 2 * pad);
+            }
             mapRegion.LandformMap.Size = noiseSizeLandform + 2 * pad;
             mapRegion.LandformMap.TopLeftPadding = mapRegion.LandformMap.BottomRightPadding = pad;
 
