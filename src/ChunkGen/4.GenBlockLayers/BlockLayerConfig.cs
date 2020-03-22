@@ -129,7 +129,12 @@ namespace dominions.world
         public int GetBlockForMotherRock(int rockBlockid)
         {
             int resultId = BlockId;
-            BlockIdMapping?.TryGetValue(rockBlockid, out resultId);
+
+            if (BlockIdMapping != null)
+            {
+                BlockIdMapping.TryGetValue(rockBlockid, out resultId);
+            }
+            
             return resultId;
         }
 
