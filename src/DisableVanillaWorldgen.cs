@@ -53,7 +53,7 @@ namespace customworld
             {
                 for (int i = 0; handlers != null && i < handlers.Count; i++)
                 {
-                    if (handlers[i].Target.GetType().Namespace == "Vintagestory.ServerMods" && (handlers[i].Target.GetType().Name == "GenBlockLayers"))
+                    if (handlers[i].Target.GetType().Namespace == "Vintagestory.ServerMods" && (handlers[i].Target.GetType().Name == "GenBlockLayers" || handlers[i].Target.GetType().Name == "GenTerra"))
                     {
                         handlers.RemoveAt(i);
                         i--;

@@ -14,6 +14,9 @@ namespace dominions.world
 {
     public static class WorldMap
     {
+        public static int defaultLandform = 0;
+        public static int defaultClimate = 0;
+
         public static Bitmap map = null;
         public static Bitmap climateMap = null;
 
@@ -34,7 +37,7 @@ namespace dominions.world
                     int pixelZ = (((regionZ * 512) / 32) - 8376) + (y - pad);
                     if (pixelX >= 2000 || pixelX < 0 || pixelZ >= 2000 || pixelZ < 0)
                     {
-                        outData[y * sizeX + x] = 16711680;
+                        outData[y * sizeX + x] = defaultClimate;
                     }
                     else
                     {
@@ -70,12 +73,11 @@ namespace dominions.world
 
                     if (pixelX >= 2000 || pixelX < 0 || pixelZ >= 2000 || pixelZ < 0)
                     {
+                        result[offset] = defaultLandform;
+                        result[offset + 1] = defaultLandform;
 
-                        result[offset] = 1;
-                        result[offset + 1] = 1;
-
-                        result[offset + 40] = 1;
-                        result[offset + 41] = 1;
+                        result[offset + 40] = defaultLandform;
+                        result[offset + 41] = defaultLandform;
                     }
                     else
                     {
