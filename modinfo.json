@@ -6,6 +6,5 @@
   "description": "Custom world generation for dominions server",
   "version": "1.0.0",
   "dependency": {
-    "game": "1.12.8"
   }
 }
