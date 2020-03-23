@@ -71,9 +71,6 @@ namespace landtester.src
             this.api = api;
             LoadGlobalConfig(api);
 
-            // This should happen automatically.
-            WorldMap.TryGet(api);
-
             chunkSize = api.WorldManager.ChunkSize;
             glacierIceId = api.WorldManager.GetBlockId(new AssetLocation("snowblock"));
 
@@ -93,7 +90,7 @@ namespace landtester.src
         //Check chunk gen params
         private void ModifyChunkCol(IServerChunk[] chunks, int chunkX, int chunkZ, ITreeAttribute chunkGenParams)
         {
-            int landformIndex = WorldMap.GetBiomeFromPixel(WorldMap.map.GetPixel(chunkX, chunkZ));
+            int landformIndex = WorldMap.ColorToDecimal(WorldMap.ChunkToPixel(chunkX, chunkZ, WorldMap.landformMap));
             Modifiers mod = GetLandformMod(landformIndex);
 
             if (mod == Modifiers.None)

@@ -12,8 +12,8 @@ namespace dominions.world
     public class WorldMap
     {
         public ICoreServerAPI api;
-        public Bitmap landformMap;
-        public Bitmap climateMap;
+        public static Bitmap landformMap;
+        public static Bitmap climateMap;
 
         public static Color outOfBoundsLandform = Color.FromArgb(0, 0, 0, 0);
         public static Color outOfBoundsClimate = Color.FromArgb(0, 0, 0, 0);
@@ -28,13 +28,13 @@ namespace dominions.world
             string landformPath = mapFolder + @"/landforms.png";
             if (File.Exists(landformPath))
             {
-                this.landformMap = new Bitmap(landformPath);
+                landformMap = new Bitmap(landformPath);
             }
 
             string climatePath = mapFolder + @"/climate.png";
             if (File.Exists(climatePath))
             {
-                this.climateMap = new Bitmap(climatePath);
+                climateMap = new Bitmap(climatePath);
             }
 
             api.RegisterCommand("gethumidity", "gets humidity value on map", "", (IServerPlayer player, int i, CmdArgs args) =>
@@ -71,7 +71,7 @@ namespace dominions.world
                     }
                     else
                     {
-                        outData[y * sizeX + x] = ColorToDecimal(this.climateMap.GetPixel(pixelX, pixelZ));
+                        outData[y * sizeX + x] = ColorToDecimal(climateMap.GetPixel(pixelX, pixelZ));
                     }
                 }
             }

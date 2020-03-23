@@ -105,7 +105,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="assets\chunkmodifier\replace-with-custom-landforms.json" />
+    <None Include="assets\chunkmodifier\patches\replace-with-custom-landforms.json" />
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
