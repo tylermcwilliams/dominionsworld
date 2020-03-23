@@ -1,0 +1,57 @@
+﻿[
+	{
+		file: "game:worldgen/landforms",
+		op: "replace",
+		path: "/variants",
+		value: [
+			{
+				"code":  "dm bigfloaters",
+				"comment": "checkboard of land and water",
+				"hexcolor": "#79E02E",
+				"weight": 1,
+				"minTemp": -100,
+				"minRain": 100,
+				"useClimateMap": true,
+				"terrainOctaves":          [0, 0, 0, 0, 0, 0, 0, 0, 1],
+				"terrainOctaveThresholds": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+				"terrainYKeyPositions":    [0.049, 0.082, 0.288, 0.321, 0.414, 0.426, 0.450, 0.460],
+				"terrainYKeyThresholds":   [1.000, 0.000, 0.000, 0.412, 0.425, 0.425, 0.425, 0.232],
+				"mutations": [
+					{
+						"code":  "dm bigfloaters medium",
+						"chance": 0.5,
+						"comment": "checkboard of land and water",
+						"hexcolor": "#11E02E",
+						"terrainOctaves":          [0, 0, 0, 0, 0, 0, 0, 0, 1],
+						"terrainOctaveThresholds": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+						"terrainYKeyPositions":    [0.049, 0.082, 0.288, 0.321, 0.414, 0.426, 0.455, 0.460],
+						"terrainYKeyThresholds":   [1.000, 0.000, 0.000, 0.412, 0.425, 0.425, 0.425, 0.232],
+					},
+					{
+						"code":  "dm bigfloaters big",
+						"chance": 0.5,
+						"comment": "checkboard of land and water",
+						"hexcolor": "#12E02E",
+						"terrainOctaves":          [0, 0, 0, 0, 0, 0, 0, 0, 1],
+						"terrainOctaveThresholds": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+						"terrainYKeyPositions":    [0.049, 0.082, 0.288, 0.321, 0.414, 0.426, 0.460, 0.462],
+						"terrainYKeyThresholds":   [1.000, 0.000, 0.000, 0.412, 0.425, 0.425, 0.425, 0.232],
+					}
+				]
+			},
+			{
+				"code":  "dm bigflz",
+				"comment": "checkboard of land and water",
+				"hexcolor": "#79E01E",
+				"weight": 2,
+				"minTemp": -100,
+				"minRain": 100,
+				"useClimateMap": true,
+				"terrainOctaves":          [1, 0, 0, 0, 0, 0, 0, 0, 0],
+				"terrainOctaveThresholds": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+				"terrainYKeyPositions":    [0.024],
+				"terrainYKeyThresholds":   [1.000]
+			}
+		]
+	}
+]

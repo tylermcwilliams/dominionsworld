@@ -2,7 +2,7 @@
   "type": "code",
   "modid": "dominionsworld",
   "name": "dominionsworld",
-  "author": "archpriest",
+  "author": "archpriest, codemeister32",
   "description": "Custom world generation for dominions server",
   "version": "1.1.2",
   "dependency": {
