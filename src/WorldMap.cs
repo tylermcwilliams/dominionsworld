@@ -1,10 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
@@ -12,41 +9,69 @@ using Vintagestory.ServerMods;
 
 namespace dominions.world
 {
-    public static class WorldMap
+    public class WorldMap
     {
-        public static int defaultLandform = 0;
-        public static int defaultClimate = 0;
+        public ICoreServerAPI api;
+        public Bitmap landformMap;
+        public Bitmap climateMap;
 
-        public static Bitmap map = null;
-        public static Bitmap climateMap = null;
+        public static Color outOfBoundsLandform = Color.FromArgb(0, 0, 0, 0);
+        public static Color outOfBoundsClimate = Color.FromArgb(0, 0, 0, 0);
 
-        public static int[] GenClimateLayer(int regionX, int regionZ, int sizeX, int sizeZ, ICoreServerAPI api)
+        public static int chunkOffset = 8376;
+
+        public WorldMap(ICoreServerAPI api)
         {
-            int[] outData = new int[sizeX * sizeZ];
+            this.api = api;
+            string mapFolder = api.GetOrCreateDataPath("Maps");
 
+            string landformPath = mapFolder + @"/landforms.png";
+            if (File.Exists(landformPath))
+            {
+                this.landformMap = new Bitmap(landformPath);
+            }
+
+            string climatePath = mapFolder + @"/climate.png";
+            if (File.Exists(climatePath))
+            {
+                this.climateMap = new Bitmap(climatePath);
+            }
+
+            api.RegisterCommand("gethumidity", "gets humidity value on map", "", (IServerPlayer player, int i, CmdArgs args) =>
+            {
+                int chunkx = player.Entity.ServerPos.AsBlockPos.X / 32;
+                int chunkz = player.Entity.ServerPos.AsBlockPos.Z / 32;
+
+                api.BroadcastMessageToAllGroups(ChunkToPixel(chunkx, chunkz, climateMap).G.ToString(), EnumChatType.Notification);
+            });
+
+            api.RegisterCommand("getlandform", "gets land value on map", "", (IServerPlayer player, int i, CmdArgs args) =>
+            {
+                int chunkx = player.Entity.ServerPos.AsBlockPos.X / 32;
+                int chunkz = player.Entity.ServerPos.AsBlockPos.Z / 32;
+
+                api.BroadcastMessageToAllGroups(ChunkToPixel(chunkx, chunkz, landformMap).R.ToString(), EnumChatType.Notification);
+            });
+        }
+
+        public int[] GenClimateLayer(int regionX, int regionZ, int sizeX, int sizeZ)
+        {
             int pad = 2;
-
-            Bitmap climateMap = WorldMap.TryGetClimate(api);
+            int[] outData = new int[sizeX * sizeZ];
 
             for (int y = 0; y < sizeZ; ++y)
             {
                 for (int x = 0; x < sizeX; ++x)
                 {
-                    // pixel
-                    int pixelX = (((regionX * 512) / 32) - 8376) + (x - pad);
-                    int pixelZ = (((regionZ * 512) / 32) - 8376) + (y - pad);
+                    int pixelX = ((regionX * 16) - chunkOffset) + (x - pad);
+                    int pixelZ = ((regionZ * 16) - chunkOffset) + (y - pad);
                     if (pixelX >= 2000 || pixelX < 0 || pixelZ >= 2000 || pixelZ < 0)
                     {
-                        outData[y * sizeX + x] = defaultClimate;
+                        outData[y * sizeX + x] = ColorToDecimal(outOfBoundsClimate);
                     }
                     else
                     {
-                        int temperature = climateMap.GetPixel(pixelX, pixelZ).R;
-                        int rain = climateMap.GetPixel(pixelX, pixelZ).G;
-
-                        int climate = (temperature << 16) + (rain << 8);
-
-                        outData[y * sizeX + x] = climate;
+                        outData[y * sizeX + x] = ColorToDecimal(this.climateMap.GetPixel(pixelX, pixelZ));
                     }
                 }
             }
@@ -54,11 +79,10 @@ namespace dominions.world
             return outData;
         }
 
-        public static int[] GenLandformLayer(int regionX, int regionZ, int sizeX, int sizeZ, ICoreServerAPI api)
+        public int[] GenLandformLayer(int regionX, int regionZ, int sizeX, int sizeZ)
         {
+            int pad = 2;
             int[] result = new int[sizeX * sizeZ];
-
-            Bitmap worldMap = WorldMap.TryGet(api);
 
             for (int x = 0; x < (sizeX / 2); x++)
             {
@@ -66,26 +90,25 @@ namespace dominions.world
                 {
                     int offset = (z * sizeX * 2) + (x * 2);
 
-                    // pixel
-                    int pixelX = (((regionX * 512) / 32) - 8376) + (x - 2);
-                    int pixelZ = (((regionZ * 512) / 32) - 8376) + (z - 2);
+                    int pixelX = ((regionX * 16) - chunkOffset) + (x - pad);
+                    int pixelZ = ((regionZ * 16) - chunkOffset) + (z - pad);
 
 
                     if (pixelX >= 2000 || pixelX < 0 || pixelZ >= 2000 || pixelZ < 0)
                     {
-                        result[offset] = defaultLandform;
-                        result[offset + 1] = defaultLandform;
+                        result[offset] = outOfBoundsLandform.R;
+                        result[offset + 1] = outOfBoundsLandform.R;
 
-                        result[offset + 40] = defaultLandform;
-                        result[offset + 41] = defaultLandform;
+                        result[offset + 40] = outOfBoundsLandform.R;
+                        result[offset + 41] = outOfBoundsLandform.R;
                     }
                     else
                     {
-                        result[offset] = WorldMap.GetBiomeFromPixel(worldMap.GetPixel(pixelX, pixelZ));
-                        result[offset + 1] = WorldMap.GetBiomeFromPixel(worldMap.GetPixel(pixelX, pixelZ));
+                        result[offset] = landformMap.GetPixel(pixelX, pixelZ).R;
+                        result[offset + 1] = landformMap.GetPixel(pixelX, pixelZ).R;
 
-                        result[offset + 40] = WorldMap.GetBiomeFromPixel(worldMap.GetPixel(pixelX, pixelZ));
-                        result[offset + 41] = WorldMap.GetBiomeFromPixel(worldMap.GetPixel(pixelX, pixelZ));
+                        result[offset + 40] = landformMap.GetPixel(pixelX, pixelZ).R;
+                        result[offset + 41] = landformMap.GetPixel(pixelX, pixelZ).R;
                     }
                 }
             }
@@ -94,79 +117,27 @@ namespace dominions.world
 
         }
 
-        public static Bitmap TryGet(ICoreServerAPI sapi)
+        public static Color ChunkToPixel(int chunkx, int chunkz, Bitmap map)
         {
-            ICoreAPI coreApi = sapi;
-            if (map == null)
+            if (chunkx < chunkOffset || chunkz < chunkOffset)
             {
-                string mapFolder = coreApi.GetOrCreateDataPath("Maps");
-                string mapFile = mapFolder + @"/landforms.png";
-                if (File.Exists(mapFile))
-                {
-                    Bitmap bitmapRef = null;
-                    bitmapRef = new Bitmap(mapFile);
-                    return map = bitmapRef;
-                }
-                else
-                {
-                    return null;
-                }
+                // out of bounds
+                return Color.Black;
             }
-            else
-            {
-                return map;
-            }
+
+            int pixelX = (chunkx - chunkOffset);
+            int pixelZ = (chunkz - chunkOffset);
+
+            return map.GetPixel(pixelX, pixelZ);
         }
 
-        public static Bitmap TryGetClimate(ICoreServerAPI sapi)
+        public static int ColorToDecimal(Color color)
         {
-            ICoreAPI coreApi = sapi;
-            if (climateMap == null)
-            {
-                string mapFolder = coreApi.GetOrCreateDataPath("Maps");
-                string mapFile = mapFolder + @"/climate.png";
-                if (File.Exists(mapFile))
-                {
-                    Bitmap bitmapRef = null;
-                    bitmapRef = new Bitmap(mapFile);
-                    return climateMap = bitmapRef;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            else
-            {
-                return climateMap;
-            }
-        }
+            int result = (color.R << 16) + (color.G << 8) + color.B;
 
-        // to be replaced with dictionary
-        public static int GetBiomeFromPixel(Color color)
-        {
-            return color.R;
-            //water
-            if (color.R > 0)
-            {
-                return 1;
-            }
-            //land
-            else
-            {
-                return 0;
-            }
-
-            if (color.R > 5)
-            {
-                return new Random().Next(6, 30);
-            }
-            else
-            {
-                return color.R;
-
-            }
-
+            return result;
         }
     }
+
+
 }

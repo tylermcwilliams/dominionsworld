@@ -17,7 +17,7 @@ using Vintagestory.ServerMods;
  * GenMaps
  */
 
-namespace customworld
+namespace dominions.world
 {
     public class DisableVanillaWorldGen : ModSystem
     {
