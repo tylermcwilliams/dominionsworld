@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
 using Vintagestory.ServerMods;
+using Vintagestory.GameContent;
 
 // class author: Erik3003
 
@@ -19,7 +20,7 @@ using Vintagestory.ServerMods;
 
 namespace dominions.world
 {
-    public class DisableVanillaWorldGen : ModSystem
+    public class Core : ModSystem
     {
         private ICoreServerAPI api;
         private ICoreAPI coreApi;

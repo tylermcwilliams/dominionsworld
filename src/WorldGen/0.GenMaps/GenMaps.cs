@@ -108,15 +108,12 @@ namespace dominions.world
             // dominionsmod we get the climate data through the GenClimateLayer method of WorldMap, which reads the climate.png 
             if (worldMap.climateMap != null)
             {
-                api.World.Logger.Notification("--- Climate map not null, generating...");
                 mapRegion.ClimateMap.Data = worldMap.GenClimateLayer(
                     regionX,
                     regionZ,
                     noiseSizeClimate + 2 * pad,
                     noiseSizeClimate + 2 * pad
                 );
-
-                api.World.Logger.Notification("--- Climate map created");
             }
             else
             {
@@ -158,9 +155,7 @@ namespace dominions.world
             // dominionsmod
             if (worldMap.landformMap != null)
             {
-                api.World.Logger.Notification("--- Landform map not null, creating map....");
                 mapRegion.LandformMap.Data = worldMap.GenLandformLayer(regionX, regionZ, noiseSizeLandform + 2 * pad, noiseSizeLandform + 2 * pad);
-                api.World.Logger.Notification("--- Created landform map");
             }
             else
             {

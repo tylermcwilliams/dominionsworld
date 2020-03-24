@@ -70,42 +70,41 @@
     <Content Include="modinfo.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\ChunkGen\0.GenMaps\GenMaps.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerBase.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerBlur.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerClimate.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerCustomPerlin.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerDebugWind.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerDoublePerlin.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerExactZoom.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerFuzzyZoom.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerGeoProvince.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerLandforms.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerLines.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerOre.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerPerlin.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerPerlinWobble.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerTransformBase.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\MapLayer\MapLayerWobbledForest.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\NoiseBase.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\NoiseClimatePatchy.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\NoiseClimateRealistic.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\NoiseGen\WeightedOctavedNoise.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\NoiseGeoProvince.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\NoiseLandform.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\NoiseOre.cs" />
-    <Compile Include="src\ChunkGen\0.GenMaps\NoiseWind.cs" />
-    <Compile Include="src\ChunkGen\1.GenTerra\GenTerra.cs" />
-    <Compile Include="src\ChunkGen\4.GenBlockLayers\BlockLayer.cs" />
-    <Compile Include="src\ChunkGen\4.GenBlockLayers\BlockLayerConfig.cs" />
-    <Compile Include="src\ChunkGen\4.GenBlockLayers\GenBlockLayers.cs" />
-    <Compile Include="src\DisableVanillaWorldgen.cs" />
-    <Compile Include="src\WorldMap.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\GenMaps.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerBase.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerBlur.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerClimate.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerCustomPerlin.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerDebugWind.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerDoublePerlin.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerExactZoom.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerFuzzyZoom.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerGeoProvince.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerLandforms.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerLines.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerOre.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerPerlin.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerPerlinWobble.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerTransformBase.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerWobbledForest.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\NoiseBase.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\NoiseClimatePatchy.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\NoiseClimateRealistic.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\NoiseGen\WeightedOctavedNoise.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\NoiseGeoProvince.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\NoiseLandform.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\NoiseOre.cs" />
+    <Compile Include="src\WorldGen\0.GenMaps\NoiseWind.cs" />
+    <Compile Include="src\WorldGen\1.GenTerra\GenTerra.cs" />
+    <Compile Include="src\WorldGen\4.GenBlockLayers\BlockLayer.cs" />
+    <Compile Include="src\WorldGen\4.GenBlockLayers\BlockLayerConfig.cs" />
+    <Compile Include="src\WorldGen\4.GenBlockLayers\GenBlockLayers.cs" />
+    <Compile Include="src\Core.cs" />
+    <Compile Include="src\WorldGen\WorldMap.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="assets\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="assets\game\blocktypes\liquid\saltwater.json" />
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
