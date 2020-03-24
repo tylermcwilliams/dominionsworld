@@ -71,7 +71,7 @@ namespace dominions.world
                     }
                     else
                     {
-                        outData[y * sizeX + x] = ColorToDecimal(this.climateMap.GetPixel(pixelX, pixelZ));
+                        outData[y * sizeX + x] = ColorToDecimal(climateMap.GetPixel(pixelX, pixelZ));
                     }
                 }
             }
