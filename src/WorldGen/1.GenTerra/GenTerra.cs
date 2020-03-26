@@ -17,6 +17,9 @@ namespace dominions.world
         int regionChunkSize;
         int regionMapSize;
 
+        // dominionsmod
+        int saltWater;
+
         private NormalizedSimplexNoise TerrainNoise;
 
         //GenRockStrata rockstrataGen;
@@ -64,6 +67,9 @@ namespace dominions.world
 
         public void initWorldGen()
         {
+            //dominionsmod
+            saltWater = api.World.GetBlock(new AssetLocation("saltwater-still-7")).Id;
+
             LoadGlobalConfig(api);
             LandformMapByRegion.Clear();
 
@@ -300,11 +306,13 @@ namespace dominions.world
                                                 float distort = (float)distort2dx.Noise(chunkX * chunksize + lX, chunkZ * chunksize + lZ) / 20f;
                                                 float tempf = TerraGenConfig.GetScaledAdjustedTemperatureFloat(temp, 0) + distort;
 
-                                                chunks[chunkY].Blocks[chunkIndex] = (tempf < -17) ? GlobalConfig.lakeIceBlockId : GlobalConfig.waterBlockId;
+                                                // dominionsmod
+                                                chunks[chunkY].Blocks[chunkIndex] = (tempf < -17) ? GlobalConfig.lakeIceBlockId : saltWater;
                                             }
                                             else
                                             {
-                                                chunks[chunkY].Blocks[chunkIndex] = GlobalConfig.waterBlockId;
+                                                // dominionsmod
+                                                chunks[chunkY].Blocks[chunkIndex] = saltWater;
                                             }
 
                                         }

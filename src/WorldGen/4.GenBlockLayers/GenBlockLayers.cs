@@ -12,6 +12,8 @@ namespace dominions.world
 {
     public class GenBlockLayers : ModStdWorldGen
     {
+        int saltWater;
+
         private ICoreServerAPI api;
 
         List<int> BlockLayersIds = new List<int>();
@@ -86,6 +88,9 @@ namespace dominions.world
 
         public void InitWorldGen()
         {
+            // dominionsmod
+            saltWater = api.World.GetBlock(new AssetLocation("saltwater-still-7")).Id;
+
             LoadGlobalConfig(api);
 
             IAsset asset = api.Assets.Get("worldgen/rockstrata.json");
@@ -237,7 +242,8 @@ namespace dominions.world
 
                 posY--;
 
-                if (blockId == GlobalConfig.waterBlockId)
+                // dominionsmod
+                if (blockId == GlobalConfig.waterBlockId || blockId == saltWater)
                 {
                     underWater = true;
                     continue;
@@ -285,7 +291,8 @@ namespace dominions.world
                 return;
             }
 
-            if (posY == TerraGenConfig.seaLevel - 1 && beachRel > 0.5 && chunks[posY / chunksize].Blocks[(chunksize * (posY % chunksize) + z) * chunksize + x] != GlobalConfig.waterBlockId)
+            // dominonsmod
+            if (posY == TerraGenConfig.seaLevel - 1 && beachRel > 0.5 && chunks[posY / chunksize].Blocks[(chunksize * (posY % chunksize) + z) * chunksize + x] != GlobalConfig.waterBlockId && chunks[posY / chunksize].Blocks[(chunksize * (posY % chunksize) + z) * chunksize + x] != saltWater)
             {
                 chunks[posY / chunksize].Blocks[(chunksize * (posY % chunksize) + z) * chunksize + x] = sandBlockId;
             }

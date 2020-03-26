@@ -70,6 +70,8 @@
     <Content Include="modinfo.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\BlockBehavior\BlockBehaviorFiniteSpreadingWater.cs" />
+    <Compile Include="src\Core.cs" />
     <Compile Include="src\WorldGen\0.GenMaps\GenMaps.cs" />
     <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerBase.cs" />
     <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerBlur.cs" />
@@ -96,15 +98,16 @@
     <Compile Include="src\WorldGen\0.GenMaps\NoiseOre.cs" />
     <Compile Include="src\WorldGen\0.GenMaps\NoiseWind.cs" />
     <Compile Include="src\WorldGen\1.GenTerra\GenTerra.cs" />
-    <Compile Include="src\WorldGen\4.GenBlockLayers\BlockLayer.cs" />
-    <Compile Include="src\WorldGen\4.GenBlockLayers\BlockLayerConfig.cs" />
+    <Compile Include="src\WorldGen\3.GenCaves\GenCaves.cs" />
     <Compile Include="src\WorldGen\4.GenBlockLayers\GenBlockLayers.cs" />
-    <Compile Include="src\Core.cs" />
+    <Compile Include="src\WorldGen\DisableVanillaWorldgenHandlers.cs" />
+    <Compile Include="src\WorldGen\OldGenPartial.cs" />
     <Compile Include="src\WorldGen\WorldMap.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <None Include="assets\game\blocktypes\liquid\saltwater.json" />
+    <None Include="assets\world\patches\block-patch.json" />
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
