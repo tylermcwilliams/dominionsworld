@@ -452,5 +452,15 @@
 			"terrainYKeyPositions":    [0.175, 0.185, 0.259],
 			"terrainYKeyThresholds":   [1.000, 0.506, 0.000]
 		},
+		{
+			"code": "mesa",
+			"comment": "",
+			"hexcolor": "#000036",
+			"weight": 1000000000,
+			"useClimateMap": true,
+			"terrainOctaves": [1, 1, 1, 1, 1, 0, 0, 0, 0],
+			"terrainYKeyPositions": [ 0.453, 0.555, 0.683, 0.693, 0.740, 0.900, 0.912 ],
+			"terrainYKeyThresholds": [ 1.000, 0.335, 0.305, 0.170, 0.120, 0.098, 0.000 ]
+		},
 	]
 }
