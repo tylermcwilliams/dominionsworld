@@ -102,9 +102,13 @@
     <Compile Include="src\Core.cs" />
     <Compile Include="src\WorldGen\WorldMap.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="assets\customforms\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="assets\game\blocktypes\liquid\saltwater.json" />
+    <None Include="assets\game\worldgen\landforms.json" />
+    <None Include="assets\game\worldgen\treengenproperties.json" />
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
