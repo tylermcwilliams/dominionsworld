@@ -167,9 +167,9 @@ namespace dominions.world
 
                     int tempUnscaled = (climate >> 16) & 0xff;
 
-                    int div_rnd = (int)(distx / 5);
-                    float temp = TerraGenConfig.GetScaledAdjustedTemperatureFloat(tempUnscaled, posY - TerraGenConfig.seaLevel + div_rnd);
-                    float rainRel = TerraGenConfig.GetRainFall((climate >> 8) & 0xff, posY + div_rnd) / 255f;
+                    int rnd = (int)(distx / 5);
+                    float temp = TerraGenConfig.GetScaledAdjustedTemperatureFloat(tempUnscaled, posY - TerraGenConfig.seaLevel + rnd);
+                    float rainRel = TerraGenConfig.GetRainFall((climate >> 8) & 0xff, posY + rnd) / 255f;
                     float forestRel = GameMath.BiLerp(forestUpLeft, forestUpRight, forestBotLeft, forestBotRight, (float)x / chunksize, (float)z / chunksize) / 255f;
                     float beachRel = GameMath.BiLerp(beachUpLeft, beachUpRight, beachBotLeft, beachBotRight, (float)x / chunksize, (float)z / chunksize) / 255f;
 
