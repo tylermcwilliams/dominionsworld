@@ -60,6 +60,9 @@ Changes from source
 - `GenCaves.cs` line 547
 - `GenTerra.cs` line 310
 
+- `game/world/patches/block-patch` replaces BlockBehaviorFiniteSpreadingWater
+
 Added
 
 - `OldGenPartial.cs` Needed for GenCaves, Tyron keeps this part closed for the new versions
+- `BlockBehaviorFiniteSpreadingWater.cs` custom class that checks for both saltwater and normal
