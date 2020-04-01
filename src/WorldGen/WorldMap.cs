@@ -37,20 +37,19 @@ namespace dominions.world
                 this.climateMap = new Bitmap(climatePath);
             }
 
-            api.RegisterCommand("gethumidity", "gets humidity value on map", "", (IServerPlayer player, int i, CmdArgs args) =>
+            api.RegisterCommand("getpixelinfo", "gets pixel values on maps", "", (IServerPlayer player, int i, CmdArgs args) =>
             {
                 int chunkx = player.Entity.ServerPos.AsBlockPos.X / 32;
                 int chunkz = player.Entity.ServerPos.AsBlockPos.Z / 32;
 
-                api.BroadcastMessageToAllGroups(ChunkToPixel(chunkx, chunkz, climateMap).G.ToString(), EnumChatType.Notification);
-            });
-
-            api.RegisterCommand("getlandform", "gets land value on map", "", (IServerPlayer player, int i, CmdArgs args) =>
-            {
-                int chunkx = player.Entity.ServerPos.AsBlockPos.X / 32;
-                int chunkz = player.Entity.ServerPos.AsBlockPos.Z / 32;
-
-                api.BroadcastMessageToAllGroups(ChunkToPixel(chunkx, chunkz, landformMap).R.ToString(), EnumChatType.Notification);
+                player.SendMessage(0,
+                    "landform:" +
+                    ChunkToPixel(chunkx, chunkz, landformMap).R.ToString() +
+                    " temp:" +
+                    ChunkToPixel(chunkx, chunkz, climateMap).R.ToString() +
+                    " humid:" +
+                    ChunkToPixel(chunkx, chunkz, landformMap).R.ToString(),
+                EnumChatType.Notification);
             });
         }
 

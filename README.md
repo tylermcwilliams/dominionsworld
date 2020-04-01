@@ -13,12 +13,13 @@ Changes from source:
 - `GenMaps.cs` lines 13, 81 instance of WorldMap
 - `GenMaps.cs` line 109 Climate mapgen
 - `GenMaps.cs` line 156 Landform mapgen
-- `GenBlockLayers.cs` 
-	- line 159 Abs of climate distortion, prevents bit overflow, 
-	- line 295 saltwater
-	- line 245 saltwater
+- `GenBlockLayers.cs` - line 159 Abs of climate distortion, prevents bit overflow, - line 295 saltwater - line 245 saltwater
 - `GenCaves.cs` line 547 saltwater
 - `GenTerra.cs` line 310 saltwater
+
+## Commands
+
+- `/getpixelinfo` returns landform, temp and humidity of a given chunk
 
 ## Climate Map
 
