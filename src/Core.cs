@@ -1,6 +1,13 @@
 ﻿using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 
+[assembly: ModInfo("dominionsworld",
+    Description = "Custom world generation for dominions server",
+    Website = "",
+    Authors = new[] { "archpriest" },
+    Version = "1.1.4"
+    )]
+
 namespace dominions.world
 {
     class Core : ModSystem

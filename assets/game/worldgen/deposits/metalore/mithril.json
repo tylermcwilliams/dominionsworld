@@ -1,0 +1,71 @@
+[
+  {
+    "code": "mithril",
+    "triesPerChunk": 7,
+    "withOreMap": true,
+    "handbookPageCode": "item-nugget-mithril",
+    "generator": "disc-followsurface",
+    "attributes": {
+      "inblock": {
+        "code": "rock-*",
+        "name": "rock",
+        "allowedVariants": [
+          "andesite",
+          "granite",
+          "basalt",
+          "peridotite",
+          "phyllite"
+        ]
+      },
+      "placeblock": {
+        "code": "ore-*-mithril-{rock}",
+        "name": "grade",
+        "allowedVariantsByInBlock": {
+          "rock-andesite": ["poor", "medium"],
+          "rock-granite": ["poor", "medium", "rich", "bountiful"],
+          "rock-basalt": ["poor", "medium"],
+          "rock-peridotite": ["poor", "medium"],
+          "rock-phyllite": ["poor", "medium"]
+        }
+      },
+      "radius": { "dist": "gaussian", "avg": 5, "var": 3 },
+      "yPosRel": { "dist": "uniform", "avg": 0.575, "var": 0.175 },
+      "thickness": { "dist": "uniform", "avg": 1, "var": 0 }
+    }
+  },
+  {
+    "code": "mithril",
+    "_comment": "Extremly rare massive mithril deposits",
+    "triesPerChunk": 0.1,
+    "withOreMap": true,
+    "generator": "disc-followsurface",
+    "handbookPageCode": "item-nugget-mithril",
+    "attributes": {
+      "inblock": {
+        "code": "rock-*",
+        "name": "rock",
+        "allowedVariants": [
+          "andesite",
+          "granite",
+          "basalt",
+          "peridotite",
+          "phyllite"
+        ]
+      },
+      "placeblock": {
+        "code": "ore-*-mithril-{rock}",
+        "name": "grade",
+        "allowedVariantsByInBlock": {
+          "rock-andesite": ["poor", "medium"],
+          "rock-granite": ["poor", "medium", "rich", "bountiful"],
+          "rock-basalt": ["poor", "medium"],
+          "rock-peridotite": ["poor", "medium"],
+          "rock-phyllite": ["poor", "medium"]
+        }
+      },
+      "radius": { "dist": "gaussian", "avg": 12, "var": 3 },
+      "yPosRel": { "dist": "uniform", "avg": 0.3, "var": 0.3 },
+      "thickness": { "dist": "uniform", "avg": 1, "var": 0 }
+    }
+  }
+]

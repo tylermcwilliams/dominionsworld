@@ -1,0 +1,18 @@
+[
+  {
+    "file": "game:blocktypes/metal/ingotpile",
+    "op": "add",
+    "path": "/textures/mithril",
+    "value": {
+      "base": "block/metal/ingot/mithril"
+    }
+  },
+  {
+    "file": "game:blocktypes/metal/platepile",
+    "op": "add",
+    "path": "/textures/mithril",
+    "value": {
+      "base": "block/metal/ingot/mithril"
+    }
+  }
+]

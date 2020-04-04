@@ -1,0 +1,122 @@
+[
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-poor-mithril-andesite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-medium-mithril-andesite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-rich-mithril-andesite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-bountiful-mithril-andesite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-poor-mithril-granite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-medium-mithril-granite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-rich-mithril-granite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-bountiful-mithril-granite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-poor-mithril-peridotite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-medium-mithril-peridotite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-rich-mithril-peridotite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-bountiful-mithril-peridotite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-poor-mithril-phyllite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-medium-mithril-phyllite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-rich-mithril-phyllite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-bountiful-mithril-phyllite"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-poor-mithril-basalt"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-medium-mithril-basalt"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-rich-mithril-basalt"
+  },
+  {
+    "file": "game:itemtypes/resource/crystalizedore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "crystalizedore-bountiful-mithril-basalt"
+  }
+]

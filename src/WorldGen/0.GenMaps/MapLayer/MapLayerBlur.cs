@@ -42,8 +42,8 @@ namespace dominions.world
                 int w = xEnd - xStart;
                 int h = yEnd - yStart;
 
-                int halfRange = range/2;
-                int index = yStart*w;
+                int halfRange = range / 2;
+                int index = yStart * w;
                 uint[] newColors = new uint[w];
 
                 for (int y = yStart; y < yEnd; y++)
@@ -61,10 +61,10 @@ namespace dominions.world
                             uint col = pixels[index + oldPixel];
                             if (col != 0)
                             {
-                                a -= ((byte) (col >> 24));
-                                r -= ((byte) (col >> 16));
-                                g -= ((byte) (col >> 8));
-                                b -= ((byte) col);
+                                a -= ((byte)(col >> 24));
+                                r -= ((byte)(col >> 16));
+                                g -= ((byte)(col >> 8));
+                                b -= ((byte)col);
                             }
                             hits--;
                         }
@@ -75,21 +75,21 @@ namespace dominions.world
                             uint col = pixels[index + newPixel];
                             if (col != 0)
                             {
-                                a += ((byte) (col >> 24));
-                                r += ((byte) (col >> 16));
-                                g += ((byte) (col >> 8));
-                                b += ((byte) col);
+                                a += ((byte)(col >> 24));
+                                r += ((byte)(col >> 16));
+                                g += ((byte)(col >> 8));
+                                b += ((byte)col);
                             }
                             hits++;
                         }
 
                         if (x >= xStart)
                         {
-                            uint color = (uint) (
-                                ((byte) (a/hits) << 24)
-                                | ((byte) (r/hits) << 16)
-                                | ((byte) (g/hits) << 8)
-                                | ((byte) (b/hits))
+                            uint color = (uint)(
+                                ((byte)(a / hits) << 24)
+                                | ((byte)(r / hits) << 16)
+                                | ((byte)(g / hits) << 8)
+                                | ((byte)(b / hits))
                                 );
 
                             newColors[x] = color;
@@ -115,11 +115,11 @@ namespace dominions.world
                 int w = xEnd - xStart;
                 int h = yEnd - yStart;
 
-                int halfRange = range/2;
+                int halfRange = range / 2;
 
                 uint[] newColors = new uint[h];
-                int oldPixelOffset = -(halfRange + 1)*w;
-                int newPixelOffset = (halfRange)*w;
+                int oldPixelOffset = -(halfRange + 1) * w;
+                int newPixelOffset = (halfRange) * w;
 
                 for (int x = xStart; x < xEnd; x++)
                 {
@@ -128,7 +128,7 @@ namespace dominions.world
                     int r = 0;
                     int g = 0;
                     int b = 0;
-                    int index = yStart*w - halfRange*w + x;
+                    int index = yStart * w - halfRange * w + x;
                     for (int y = yStart - halfRange; y < yEnd; y++)
                     {
                         int oldPixel = y - halfRange - 1;
@@ -137,10 +137,10 @@ namespace dominions.world
                             uint col = pixels[index + oldPixelOffset];
                             if (col != 0)
                             {
-                                a -= ((byte) (col >> 24));
-                                r -= ((byte) (col >> 16));
-                                g -= ((byte) (col >> 8));
-                                b -= ((byte) col);
+                                a -= ((byte)(col >> 24));
+                                r -= ((byte)(col >> 16));
+                                g -= ((byte)(col >> 8));
+                                b -= ((byte)col);
                             }
                             hits--;
                         }
@@ -151,21 +151,21 @@ namespace dominions.world
                             uint col = pixels[index + newPixelOffset];
                             if (col != 0)
                             {
-                                a += ((byte) (col >> 24));
-                                r += ((byte) (col >> 16));
-                                g += ((byte) (col >> 8));
-                                b += ((byte) col);
+                                a += ((byte)(col >> 24));
+                                r += ((byte)(col >> 16));
+                                g += ((byte)(col >> 8));
+                                b += ((byte)col);
                             }
                             hits++;
                         }
 
                         if (y >= yStart)
                         {
-                            uint color = (uint) (
-                                ((byte) (a/hits) << 24)
-                                | ((byte) (r/hits) << 16)
-                                | ((byte) (g/hits) << 8)
-                                | ((byte) (b/hits))
+                            uint color = (uint)(
+                                ((byte)(a / hits) << 24)
+                                | ((byte)(r / hits) << 16)
+                                | ((byte)(g / hits) << 8)
+                                | ((byte)(b / hits))
                                 );
 
                             newColors[y] = color;
@@ -176,12 +176,12 @@ namespace dominions.world
 
                     for (int y = yStart; y < yEnd; y++)
                     {
-                        pixels[y*w + x] = newColors[y];
+                        pixels[y * w + x] = newColors[y];
                     }
                 }
             }
         }
 
-      
+
     }
 }

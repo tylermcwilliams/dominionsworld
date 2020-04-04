@@ -1,0 +1,128 @@
+[
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "requiredMiningTierByType/ore-*-mithril-*",
+    "value": 4
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-poor-mithril-andesite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-mithril-andesite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-rich-mithril-andesite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-bountiful-mithril-andesite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-poor-mithril-granite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-mithril-granite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-rich-mithril-granite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-bountiful-mithril-granite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-poor-mithril-peridotite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-mithril-peridotite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-rich-mithril-peridotite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-bountiful-mithril-peridotite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-poor-mithril-phyllite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-mithril-phyllite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-rich-mithril-phyllite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-bountiful-mithril-phyllite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-poor-mithril-basalt"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-mithril-basalt"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-rich-mithril-basalt"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-bountiful-mithril-basalt"
+  }
+]

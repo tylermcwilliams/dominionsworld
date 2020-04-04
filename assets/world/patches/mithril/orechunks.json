@@ -1,0 +1,146 @@
+[
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/attributes/metalUnitsByType/ore-poor-mithril-*",
+    "value": 5
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/attributes/metalUnitsByType/ore-medium-mithril-*",
+    "value": 10
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/attributes/metalUnitsByType/ore-rich-mithril-*",
+    "value": 15
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/attributes/metalUnitsByType/ore-bountiful-mithril-*",
+    "value": 20
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-poor-mithril-andesite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-mithril-andesite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-rich-mithril-andesite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-bountiful-mithril-andesite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-poor-mithril-granite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-mithril-granite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-rich-mithril-granite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-bountiful-mithril-granite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-poor-mithril-peridotite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-mithril-peridotite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-rich-mithril-peridotite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-bountiful-mithril-peridotite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-poor-mithril-phyllite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-mithril-phyllite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-rich-mithril-phyllite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-bountiful-mithril-phyllite"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-poor-mithril-basalt"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-mithril-basalt"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-rich-mithril-basalt"
+  },
+  {
+    "file": "game:itemtypes/resource/ore-graded",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-bountiful-mithril-basalt"
+  }
+]

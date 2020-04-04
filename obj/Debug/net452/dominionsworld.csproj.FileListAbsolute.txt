@@ -1,0 +1,13 @@
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\bin\Debug\net452\dominionsworld.dll
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\bin\Debug\net452\dominionsworld.pdb
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\bin\Debug\net452\VintagestoryAPI.dll
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\bin\Debug\net452\VSSurvivalMod.dll
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\bin\Debug\net452\VSCreativeMod.dll
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\bin\Debug\net452\VintagestoryAPI.xml
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\obj\Debug\net452\dominionsworld.csprojAssemblyReference.cache
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\obj\Debug\net452\dominionsworld.csproj.CoreCompileInputs.cache
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\obj\Debug\net452\dominionsworld.AssemblyInfoInputs.cache
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\obj\Debug\net452\dominionsworld.AssemblyInfo.cs
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\obj\Debug\net452\dominionsworld.csproj.CopyComplete
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\obj\Debug\net452\dominionsworld.dll
+C:\Users\Tyler McWilliams\Documents\projects\vs\mods\dominionsworld\obj\Debug\net452\dominionsworld.pdb

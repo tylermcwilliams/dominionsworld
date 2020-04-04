@@ -1,64 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{31C658C7-E293-4DFD-A835-064157E323BA}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>dominionsworld</RootNamespace>
-    <AssemblyName>dominionsworld</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\Debug\dominionsworld\</OutputPath>
-    <IntermediateOutputPath>..\..\obj\Debug\dominionsworld\</IntermediateOutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <TargetFramework>net452</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\Release\dominionsworld\</OutputPath>
-    <IntermediateOutputPath>..\..\obj\Release\dominionsworld\</IntermediateOutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="cairo-sharp">
-      <HintPath>..\..\bin\Debug\dominionscharacters\cairo-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
     <Reference Include="VintagestoryAPI">
-      <HintPath>$(AppData)\Vintagestory\VintagestoryAPI.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
     </Reference>
     <Reference Include="VSSurvivalMod">
-      <HintPath>$(AppData)\Vintagestory\Mods\VSSurvivalMod.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>$(VINTAGE_STORY)\Mods\VSSurvivalMod.dll</HintPath>
     </Reference>
     <Reference Include="VSEssentials">
-      <HintPath>$(AppData)\Vintagestory\Mods\VSEssentials.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="VSCreativeMod">
-      <HintPath>$(AppData)\Vintagestory\Mods\VSCreativeMod.dll</HintPath>
+      <HintPath>$(VINTAGE_STORY)\Mods\VSEssentials.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">
@@ -66,56 +20,10 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="modinfo.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="src\BlockBehavior\BlockBehaviorFiniteSpreadingWater.cs" />
-    <Compile Include="src\Core.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\GenMaps.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerBase.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerBlur.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerClimate.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerCustomPerlin.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerDebugWind.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerDoublePerlin.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerExactZoom.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerFuzzyZoom.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerGeoProvince.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerLandforms.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerLines.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerOre.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerPerlin.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerPerlinWobble.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerTransformBase.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\MapLayer\MapLayerWobbledForest.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\NoiseBase.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\NoiseClimatePatchy.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\NoiseClimateRealistic.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\NoiseGen\WeightedOctavedNoise.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\NoiseGeoProvince.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\NoiseLandform.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\NoiseOre.cs" />
-    <Compile Include="src\WorldGen\0.GenMaps\NoiseWind.cs" />
-    <Compile Include="src\WorldGen\1.GenTerra\GenTerra.cs" />
-    <Compile Include="src\WorldGen\3.GenCaves\GenCaves.cs" />
-    <Compile Include="src\WorldGen\4.GenBlockLayers\GenBlockLayers.cs" />
-    <Compile Include="src\WorldGen\DisableVanillaWorldgenHandlers.cs" />
-    <Compile Include="src\WorldGen\OldGenPartial.cs" />
-    <Compile Include="src\WorldGen\WorldMap.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\customforms\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="assets\game\blocktypes\liquid\saltwater.json" />
-    <None Include="assets\game\worldgen\landforms.json" />
-    <None Include="assets\game\worldgen\treengenproperties.json" />
-    <None Include="README.md" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
+
+  <Target Name="Copy" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Debug'">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(VINTAGE_STORY_DATA)/Mods" />
+    <Copy SourceFiles="$(TargetDir)/$(TargetName).pdb" DestinationFolder="$(VINTAGE_STORY_DATA)/Mods" />
+  </Target>
+
 </Project>

@@ -1,0 +1,27 @@
+[
+  {
+    "file": "game:worldproperties/block/ore-graded",
+    "op": "add",
+    "path": "/variants/-",
+    "value": {
+      "Code": "mithril"
+    }
+  },
+  {
+    "file": "game:worldproperties/block/ore-nugget",
+    "op": "add",
+    "path": "/variants/-",
+    "value": {
+      "Code": "mithril"
+    }
+  },
+  {
+    "file": "game:worldproperties/block/metal",
+    "op": "add",
+    "path": "/variants/-",
+    "value": {
+      "code": "mithril",
+      "tier": 6
+    }
+  }
+]
