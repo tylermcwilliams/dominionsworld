@@ -17,6 +17,7 @@ using Vintagestory.API.Config;
  * GenTerra
  * GenBlockLayers
  * GenMaps
+ * GenCaves
  */
 
 namespace dominions.world

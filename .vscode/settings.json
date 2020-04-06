@@ -1,15 +1,15 @@
 {
   "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
-    "**/.vscode": true,
-    "**/bin": true,
-    "**/obj": true,
-    "**/.gitignore": true,
-    "*.csproj": true
+    "**/.git": false,
+    "**/.svn": false,
+    "**/.hg": false,
+    "**/CVS": false,
+    "**/.DS_Store": false,
+    "**/.vscode": false,
+    "**/bin": false,
+    "**/obj": false,
+    "**/.gitignore": false,
+    "*.csproj": false
   },
 "explorerExclude.backup": null,
 "explorer.compactFolders": false
